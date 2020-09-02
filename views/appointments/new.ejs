@@ -35,23 +35,34 @@
         
     </header><!-- #site-navigation -->
     <main>
-        <h1>The Main landing page</h1>
-<!--   
-         <h2>
-        
-         <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Pet Name</th>
-                    <th>Date</th>
-                    <th></th>
-                    
-                </tr>
-            </thead>
-            
-          </table> -->
-          
+  
+            <h2>Hello Set your appointment</h2>
+        <form action="/appointments" method="POST">
+            <label>Pet Name:
+                <input type="string" name="dogName"></label><br>
+            <label>Location:
+              <select name="location">
+                  <option value="Oakland" selected>Oakland</option>
+                  <option value="San Leandro">San Leandro</option>
+                  <option value="Berkeley" >Berkeley</option>
+                  <option value="Alemeda">Alemeda</option>
+              </select>
+            </label><br>
+            <label>Training Type:
+                <select name="training">
+                    <option value="Clicker" selected>Clicker</option>
+                    <option value="Negative">Negative</option>
+                    <option value="Postive" >Postive</option>
+                    <option value="Alpha">Alpha</option>
+                </select>
+             
+            </label><br>
+            <label>Date:
+            <input type="datetime-local" name="date">
+            </label><br>
+            <input type="submit" value="Create Appointment">
+        </form>   
+    
     
     </main>
 </body>

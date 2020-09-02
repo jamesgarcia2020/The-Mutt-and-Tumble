@@ -1,8 +1,125 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    box-sizing: inherit;
+    font-family: 'Roboto', sans-serif;
+}
+
+#masthead {
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 64px;
+    padding-bottom: 48px;
+
+}
+.site-branding {
+    margin: 0;
+    text-align: center;
+    color: #6e6e6e;
+    margin-bottom: 16px;
+}
+
+.site-title a {
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+    font-size: 1.95rem;
+
+}
+
+.site-description {
+    color: gray;
+    font-size: 1.2rem;
+}
+
+.main-navigation {
+    color: #111;
+    text-align: center;
+}
+
+.main-navigation>div>ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    max-width: none;
+    padding-left: 0;
+    position: relative;
+    justify-content: space-around;
 }
 
 a {
-  color: #00B7FF;
+    text-decoration: none;
+    color: rgb(35, 136, 61);
+    font-size: 1.2rem;
+
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+table{
+    font-size: 20px;
+    background: white;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form {
+    font-size: 20px;
+    background: white;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20rem;
+
+}
+
+section {
+    font-size: 20px;
+    background: white;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20rem;
+
+}
+
+
+main {
+    
+    background: url('https://muttandtumblecom.files.wordpress.com/2020/07/img_3818.jpeg');
+    opacity: .6;
+    position: relative;
+    top: 10;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    min-height: 640px;
+    margin-top: 0;
+    background-size: cover;
+    min-height: 80vh;
+    background-position: 50%;
+}
+
+h2 > a {
+    color: black;
+}
+
+.button {
+    color: black;
+    border: 1px solid black;
+    background: lightgrey;
+    border-radius: 15%;
+    font-size: 17px;
 }

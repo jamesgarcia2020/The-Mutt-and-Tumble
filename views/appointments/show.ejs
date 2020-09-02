@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+
     <title>The Mutt and Tumble</title>
 </head>
 <body>
@@ -23,11 +25,7 @@
                     <li><a href="https://mutt-and-tumble.com/?page_id=6">Our Training Methods</a></li>
                     <li><a href="https://mutt-and-tumble.com/contact/">Contact Us</a></li>
                     <li><a href="https://mutt-and-tumble.com/blog-01/">Mutt &amp; Tumble’s Blog</a></li>
-                    <li><% if (user) { %>
-                        <a href="/logout"><i class="material-icons left"></i>Log Out</a>
-                      <% } else { %>
-                        <a href="/auth/google"><i class="material-icons left"></i>Login with Google</a>
-                      <% } %></li>
+                    <li><a href="">Login</a></li>
 
                 </ul>
             </div>
@@ -35,23 +33,28 @@
         
     </header><!-- #site-navigation -->
     <main>
-        <h1>The Main landing page</h1>
-<!--   
-         <h2>
-        
-         <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Pet Name</th>
-                    <th>Date</th>
-                    <th></th>
-                    
-                </tr>
-            </thead>
-            
-          </table> -->
-          
+  
+         <h2><%= title %></h2>
+         <section id="show-page">
+            <div>Pet Name: </div>
+            <div><%= appointment.dogName %></div>
+            <div>Date: </div>
+            <div><%= appointment.date %></div>
+            <div>Location: </div>
+            <div><%= appointment.location %></div>
+            <div>Training: </div>
+            <div><%= appointment.training %></div>
+       
+          </section>
+        <br><br>
+    <form method="POST"
+      action="/appointments/<%= appointment._id %>/feedbacks">
+      <label>feedback:
+        <input type="string" height="250px"></input>
+      </label>
+      <input type="submit" value="Add feedback">
+    </form>
+    
     
     </main>
 </body>

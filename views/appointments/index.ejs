@@ -35,10 +35,9 @@
         
     </header><!-- #site-navigation -->
     <main>
-        <h1>The Main landing page</h1>
-<!--   
+  
          <h2>
-        
+         <a href="/appointments/new">Create new appointment</a></h2>
          <table>
             <thead>
                 <tr>
@@ -46,11 +45,23 @@
                     <th>Pet Name</th>
                     <th>Date</th>
                     <th></th>
-                    
                 </tr>
             </thead>
+            <% appointments.forEach(function(a) { %> 
+            <tr>
+                <td><%= a.dogName %></td>
+                <td><%= a.date %></td>
+                <td><a href="/appointments/<%= a._id %>">DETAILS</a></td>
+                </tr>
+                <% }); %>
+            <tbody>
+
+
+
+
+            </tbody>
             
-          </table> -->
+          </table>
           
     
     </main>

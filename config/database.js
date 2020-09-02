@@ -5,5 +5,5 @@ mongoose.connect(
 );
 var db = mongoose.connection;
 db.on('connected', function() {
-    console.log(`Connected to MongoDB at ${db.host}:${db.port}`);
+    console.log(`I am connected to MongoDB at ${db.host}:${db.port}`);
 });
