@@ -27,7 +27,7 @@ const appointmentSchema = new Schema({
       type: String,
       enum: ['Clicker', 'Negative', 'Positive', 'Alpha']
   },
-  feedback: [feedbackSchema],
+  feedbacks: [feedbackSchema],
   user: {type: Schema.Types.ObjectId, ref: 'User'}
 },
 {

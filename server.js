@@ -9,7 +9,7 @@ var methodOverride = require('method-override');
 require('dotenv').config();
 var indexRouter = require('./routes/index');
 var appointmentsRouter = require('./routes/appointments');
-
+const feedbacksRouter = require('./routes/feedbacks');
 var app = express();
 require('./config/database');
 require('./config/passport');
@@ -39,6 +39,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/appointments', appointmentsRouter);
+app.use('/', feedbacksRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
