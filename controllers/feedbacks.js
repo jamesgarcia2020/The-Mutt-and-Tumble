@@ -1,7 +1,8 @@
 const Appointment = require('../models/appointment');
  
  module.exports = {
-   create
+   create,
+   delete: deleteFeedback
  };
 
  function create(req, res) {
@@ -11,4 +12,14 @@ const Appointment = require('../models/appointment');
         res.redirect(`/appointments/${appointment._id}`);
       });
     });
+  }
+
+  function deleteFeedback(req, res) {
+    Appointment.findOne({'feedbacks._id': req.params.id}, function(err, appointment) {
+      const feedSubdoc = appointment.feedbacks.id(req.params.id);
+      feedSubdoc.remove();
+      appointment.save(function(err) {
+        res.redirect(`/appointments/${appointment._id}`);
+      })
+    })
   }

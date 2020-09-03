@@ -35,35 +35,34 @@
         
     </header><!-- #site-navigation -->
     <main>
-  
-         <h2>
-         <a href="/appointments/new">Create new appointment</a></h2>
-         <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Pet Name</th>
-                    <th>Date</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <% appointments.forEach(function(a) { %> 
-            <tr>
-                <td><%= a.dogName %></td>
-                <td><%= a.date %></td>
-                <td><a href="/appointments/<%= a._id %>">DETAILS</a>&nbsp;|&nbsp;<a href="/appointments/<%=a._id%>/edit">Edit</a></td>
-                </tr>
-                <% }); %>
-            <tbody>
+        <h2>Hello Set your appointment</h2>
+        <form action="/appointments/<%= appointment._id %>?_method=PUT" method="POST">
+            <label>Edit Pet Name:
+                <input type="string" name="dogName"></label><br>
+            <label>Edit Location:
+              <select name="location">
+                  <option value="Oakland" selected>Oakland</option>
+                  <option value="San Leandro">San Leandro</option>
+                  <option value="Berkeley" >Berkeley</option>
+                  <option value="Alemeda">Alemeda</option>
+              </select>
+            </label><br>
+            <label>Edit Training Type:
+                <select name="training">
+                    <option value="Clicker" selected>Clicker</option>
+                    <option value="Negative">Negative</option>
+                    <option value="Postive" >Postive</option>
+                    <option value="Alpha">Alpha</option>
+                </select>
+             
+            </label><br>
+            <label>Edit Date:
+            <input type="datetime-local" name="date">
+            </label><br>
+            <input type="submit" value="Update Appointment">
+        </form>   
 
-
-
-
-            </tbody>
-            
-          </table>
-          
-    
     </main>
+    
 </body>
 </html>

@@ -10,7 +10,8 @@ router.get('/', appointmentsCtrl.index);
 router.get('/new', appointmentsCtrl.new);
 router.get('/:id', appointmentsCtrl.show);
 router.post('/', appointmentsCtrl.create)
-
+router.get('/:id/edit', appointmentsCtrl.edit);
+router.put('/:id', appointmentsCtrl.update);
 
 
 function isLoggedIn(req, res, next) {

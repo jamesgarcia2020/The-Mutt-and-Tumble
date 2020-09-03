@@ -35,7 +35,7 @@
     <main>
   
          <h2><%= title %></h2>
-         <section id="show-page">
+        <section id="show-page">
             <div>Pet Name: </div>
             <div><%= appointment.dogName %></div>
             <div>Date: </div>
@@ -45,41 +45,46 @@
             <div>Training: </div>
             <div><%= appointment.training %></div>
        
-          </section>
-        <br><br>
-    <form method="POST"
-      action="/appointments/<%= appointment._id %>/feedbacks">
-      <label>feedback:
-        <input type="string" name="content" height="250px"></input>
-      </label>
-      <input type="submit" value="Add feedback">
-    </form>
+        </section>
+         <br><br>
+        <form method="POST"
+           action="/appointments/<%= appointment._id %>/feedbacks">
+            <label>feedback:
+            <input type="string" name="content" height="250px"></input>
+            </label>
+           <input type="submit" value="Add feedback">
+        </form>
     
 
-    <% if (appointment.feedbacks.length) { %>
+            <% if (appointment.feedbacks.length) { %>
         <table>
-          <thead>
-            <tr>
+            <thead>
+                <tr>
                  <th>Date</th>
-              <th>feedback</th>
-              <th>Rating</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% appointment.feedbacks.forEach(function(f) { %>
-              <tr>
-                <td><%= f.createdAt.toLocaleDateString() %></td>
-                <td><%= f.content %></td>
-                <td><%= f.createdAt.toLocaleDateString() %></td>
-                <td><%= f.content %></td>
-
-                
-              </tr>
-            <% }); %>
-          </tbody>
+                 <th>Feedback</th>
+                 <th>Rating</th>
+                 <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+             <% appointment.feedbacks.forEach(function(f) { %>
+                <tr>
+                 <td><%= f.createdAt.toLocaleDateString() %></td>
+                 <td><%= f.content %></td>
+                 <td>10</td>
+                 <td>
+                     <% console.log(appointment.user, user._id) %>
+                   <% if (appointment.user.equals(user._id)) { %>
+                    <form action="/feedbacks/<%= f._id %>?_method=DELETE" method="POST">
+                      <button type="submit">Xxxxxxxxxxxxxxxxxx</button>
+                    </form></td>
+                  <% } %>
+                </tr>
+                <% }); %>
+            </tbody>
         </table>
       <% } else { %>
-        <h5>No Reviews Yet</h5>
+        <h5>No Reviews Yet....................................................</h5>
       <% } %>
     
     </main>

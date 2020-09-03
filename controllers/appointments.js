@@ -6,8 +6,29 @@ module.exports = {
     index,
     new: newAppointment,
     create,
+    edit,
+    update
 
   };
+
+  function edit(req, res) {
+    Appointment.findById(req.params.id, function(err, appointment) {
+        if (err) {
+            res.redirect(`/appointments/${req.params.id}`)
+        }
+        res.render('appointments/edit', { appointment, title: 'Edit Appointment'})
+    })
+}
+
+function update(req, res) {
+    Appointment.findByIdAndUpdate(req.params.id, req.body, function(err, appointment) {
+        if (err) {
+            res.render('appointments/edit', { appointment, title: 'Edit Appointment' })
+        }
+        res.redirect(`/appointments`)
+    })
+}
+
 
   function index(req, res) {
       Appointment.find({}, function(err, appointments) {
