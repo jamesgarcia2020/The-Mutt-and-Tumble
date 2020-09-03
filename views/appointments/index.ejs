@@ -41,17 +41,17 @@
          <table>
             <thead>
                 <tr>
-                    <th></th>
+                    
                     <th>Pet Name</th>
                     <th>Date</th>
-                    <th></th>
+                    <th>Options</th>
                 </tr>
             </thead>
             <% appointments.forEach(function(a) { %> 
             <tr>
                 <td><%= a.dogName %></td>
                 <td><%= a.date %></td>
-                <td><a href="/appointments/<%= a._id %>">DETAILS</a>&nbsp;|&nbsp;<a href="/appointments/<%=a._id%>/edit">Edit</a></td>
+                <td><a href="/appointments/<%= a._id %>">Details</a>&nbsp;|&nbsp;<a href="/appointments/<%=a._id%>/edit">Edit</a></td>
                 </tr>
                 <% }); %>
             <tbody>

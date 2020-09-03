@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const feedbackSchema = new Schema({
   content: String,
+  user: {type: Schema.Types.ObjectId, ref: 'User'}
 }, {
   timestamps: true
 });

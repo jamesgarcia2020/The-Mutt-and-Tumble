@@ -22,7 +22,7 @@ module.exports = {
 
 function update(req, res) {
     Appointment.findByIdAndUpdate(req.params.id, req.body, function(err, appointment) {
-        if (err) {
+        if (!appointment.user.equals(req.user._id)) {
             res.render('appointments/edit', { appointment, title: 'Edit Appointment' })
         }
         res.redirect(`/appointments`)
@@ -31,7 +31,7 @@ function update(req, res) {
 
 
   function index(req, res) {
-      Appointment.find({}, function(err, appointments) {
+      Appointment.find({'user': req.user._id}, function(err, appointments) {
       res.render('appointments/index', { appointments })
 })
 }
@@ -59,6 +59,11 @@ function show(req, res) {
 
   
   function newAppointment(req, res) {
+    for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key];
+            };
+      const appointment = new Appointment(req.body);
+      appointment.user = req.user._id;
       res.render('appointments/new')
   }
 

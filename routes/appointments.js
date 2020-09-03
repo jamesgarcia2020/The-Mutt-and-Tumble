@@ -9,9 +9,9 @@ const appointmentsCtrl = require('../controllers/appointments');
 router.get('/', appointmentsCtrl.index);
 router.get('/new', appointmentsCtrl.new);
 router.get('/:id', appointmentsCtrl.show);
-router.post('/', appointmentsCtrl.create)
-router.get('/:id/edit', appointmentsCtrl.edit);
-router.put('/:id', appointmentsCtrl.update);
+router.post('/', isLoggedIn, appointmentsCtrl.create)
+router.get('/:id/edit', isLoggedIn, appointmentsCtrl.edit);
+router.put('/:id', isLoggedIn, appointmentsCtrl.update);
 
 
 function isLoggedIn(req, res, next) {
